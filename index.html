@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K A E N</title>
+    <script>
+        function doThanks() {
+            var thanksText = document.getElementById('thanksText');
+            thanksText.classList.add('thanks-animation');
+            thanksText.addEventListener('animationend', function () {
+                thanksText.classList.remove('thanks-animation');
+            }, { once: true });
+        }
+    </script>
+    <style>
+        @keyframes thanks {
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .thanks-animation {
+            animation: thanks 3s;
+        }
+
+        body {
+            background: linear-gradient(135deg, rgb(60, 60, 60), black);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .static-box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: rgba(20, 20, 20, 0.9);
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 34px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 0 0 10px 10px;
+            z-index: 101;
+        }
+
+        .static-box-buttons {
+            display: flex;
+            gap: 10px;
+            translate: -175%;
+        }
+
+        .static-box-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #222 0%, #111 100%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .button-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 8px;
+        }
+
+        .static-box-button:hover {
+            background: linear-gradient(135deg, #555 0%, #777 100%);
+            transform: scale(1.1);
+        }
+
+        .image-box {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .mid-box-container {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            padding: 0 20px;
+        }
+
+        .mid-box {
+            width: 100%;
+            max-width: 600px;
+            background: rgba(10, 10, 10, 0.8);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .mid-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .mid-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .mid-box p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .link-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #222 0%, #111 100%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .link-button:hover {
+            background: linear-gradient(135deg, #555 0%, #777 100%);
+            transform: scale(1.1);
+        }
+
+        .bottom-box {
+            width: 100%;
+            background: rgba(11, 11, 11, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            margin: 10px 0;
+        }
+
+        .bottom-box h3 {
+            margin: 0;
+        }
+
+        .bottom-box .static-box-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .bottom-box .static-box-button:hover {
+            background: linear-gradient(135deg, #555 0%, #777 100%);
+            transform: scale(1.1);
+        }
+
+        .kaen-text {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: black;
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            text-align: center;
+            z-index: 10;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="static-box">
+        Kaen Pad
+        <div class="static-box-buttons">
+            <a href="index.html" class="static-box-button">
+                <img src="Home2.png" class="button-icon" alt="Home Icon">
+                Home
+            </a>
+            <a href="Download.html" class="static-box-button">
+                <img src="Down.png" class="button-icon" alt="Download Icon" style="transform: scale(0.7);">
+                Download
+            </a>
+            <a href="About.html" class="static-box-button">
+                <span style="color: black; font-size: 1.5em;">?</span>
+                About
+            </a>
+        </div>
+    </div>
+    <div class="image-box">
+        <img src="KaenMenuLog.png">
+    </div>
+
+    <div class="bottom-box" style="width: 600px; transform: translateY(-70%);">
+        <h1>Anouncement</h1>
+        <div class="rainbow-text">KAEN PAD VERSION 1.0.0 IS NOW OUT!</div>
+    </div>
+
+    <div class="mid-box-container" style="transform: translateY(-25%);">
+        <div class="mid-box">
+            <h2>Menu Reviews</h2>
+            <p>Discover feedback from players who have tried the Kaen Pad, whether through reviews or videos. This section is dedicated to sharing experiences, opinions, and tips about the menu and its features. Whether you're seeking insights on specific mods, overall performance, or just curious about what others are saying, you'll find it all here. Feel free to leave your own review and contribute to the community's knowledge of the Kaen Pad!</p>
+            <a href="#reviews" class="link-button">View Reviews</a>
+        </div>
+        <div class="mid-box">
+            <h2>Join Our Discord Community</h2>
+            <p>Step into the heart of the Kaen Pad community by joining our official Discord server. Our Discord is the perfect place to connect with like-minded individuals. By joining, you'll gain exclusive access to real-time updates, and direct support from the developers. Plus, you'll be the first to know about upcoming mods, features, and events. Our vibrant and welcoming community is here to help you elevate your gameplay and enjoy Gorilla Tag to the fullest.</p>
+            <a href="" target="_blank" class="link-button">Soon</a>
+        </div>
+        <div class="mid-box">
+            <h2>Credits</h2>
+            <p>The Credits section is dedicated to recognizing the talented individuals who have contributed to the development of the Kaen Pad. This includes developers, designers, testers, and community members who provided valuable feedback and support. By acknowledging their hard work, we express our gratitude and ensure that their contributions are celebrated and remembered.</p>
+            <a href="#credits" class="link-button">View Credits</a>
+        </div>
+        <div class="mid-box">
+            <h2>Features</h2>
+            <p>Menu is not out yet.</p>
+        </div>
+    </div>
+
+    <div id="credits">
+        <div class="bottom-box" style="transform: translateY(-20%); width: 1300px;">
+            <h2>Credits</h2>
+            <p>---------------------------------------------------------------------------------------------------</p>
+            <h1>Serc/Sercury</h1>
+            <p>Menu Developer</p>
+            <a href="https://www.youtube.com/@Sercury" target="_blank" class="link-button">YouTube</a>
+            <a href="https://www.tiktok.com/@jdlpa" target="_blank" class="link-button">TikTok</a>
+            <a href="https://www.guns.lol/Serc" target="_blank" class="link-button">Guns.lol</a>
+            <a href="https://discord.gg/jn7jXkHst8" target="_blank" class="link-button">Discord</a>
+            <p>---------------------------------------------------------------------------------------------------</p>
+            <h1>Novuh/Kaen</h1>
+            <p>Developer, Website</p>
+        </div>
+    </div>
+    <div id="reviews">
+        <div class="bottom-box" style="transform: translateY(-20%); height: 350px; width: 1300px; bottom: 0;">
+            <h2>Reviews</h2>
+            <p>---------------------------------------------------------------------------------------------------</p>
+            <h3>No Reviews as of 8/26/24</h3>
+        </div>
+    </div>
+    <div class="bottom-box" style="text-align: center; width: 600px; position: relative; background: rgba(11, 11, 11, 0.8);">© 2024 Kaen. All Rights Reserved.</div>
+</body>
+</html>

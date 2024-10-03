@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K A E N</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, rgb(60, 60, 60), black);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .static-box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: rgba(15, 15, 15, 0.9);
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 34px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 0 0 10px 10px;
+            z-index: 101;
+        }
+
+        .static-box-buttons {
+            display: flex;
+            gap: 10px;
+            transform: translate(-210%);
+        }
+
+        .static-box-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            width: auto;
+            background: linear-gradient(135deg, #222 0%, #111 100%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .button-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 2px;
+        }
+
+        .static-box-button:hover {
+            background: linear-gradient(135deg, #555 0%, #777 100%);
+            transform: scale(1.1);
+        }
+
+        .image-box {
+            position: relative;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+        }
+
+        .image-box img {
+            max-width: 50%;
+            height: auto;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .mid-box-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            margin: 50px 20px;
+        }
+
+        .mid-box {
+            height: auto;
+            background: rgba(10, 10, 10, 0.8);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+
+        .mid-box-special{
+            height: fit-content;
+            background: rgba(10, 10, 10, 0.8);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+
+        .mid-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .mid-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .mid-box p {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .link-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            width: 150px;
+            background: linear-gradient(135deg, #222 0%, #111 100%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 50px;
+        }
+
+        .link-button:hover {
+            background: linear-gradient(135deg, #555 0%, #777 100%);
+            transform: scale(1.1);
+        }
+
+        .bottom-box {
+            width: 80%;
+            background: rgba(11, 11, 11, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            margin: 10px 0;
+            translate: 10%;
+        }
+
+        .bottom-box h3 {
+            margin: 0;
+        }
+
+        .bottom-box .static-box-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .bottom-box .static-box-button:hover {
+            background: linear-gradient(135deg, #555 0%, #777 100%);
+            transform: scale(1.1);
+        }
+
+        .static-box-button {
+            cursor: pointer;
+            background-color: #555;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .static-box-button:hover {
+            background-color: #444;
+        }
+
+        .kaen-text {
+            position: absolute;
+            top: 10%;
+            left: 44%;
+            transform: translateX(-50%);
+            color: black;
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            text-align: center;
+            z-index: 10;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="static-box">
+        Kaen.Kaen Menu
+        <div class="static-box-buttons">
+            <a href="index.html" class="static-box-button">
+                <img src="Home2.png" class="button-icon">
+                Home
+            </a>
+            <a href="Download.html" class="static-box-button">
+                <img src="Down.png" class="button-icon" style="transform: scale(0.7);">
+                Download
+            </a>
+            <a href="About.html" class="static-box-button">
+                <label style="color: black; scale: 2.5; margin: 10px;"> ?</label>
+                About
+            </a>
+        </div>
+    </div>
+    
+    <div class="kaen-text">
+        FEATURES
+    </div>
+
+    <div class="image-box" style="transform: translate(-50%, -10%);">
+        <img src="KaenMenuLog.png">
+    </div>
+    <div class="mid-box-container">
+        <div class="mid-box">
+            <h1> Menu Settings</h1>
+            <h3>Save Mods</br>Load Mods</br>Change Theme</br>Change Outline Color</br>Stump Text</br>Notifications</br>FPS Counter</br>Disconnect Button</br>ID Grabber</br>Right Hand Menu</h3>
+        </div>
+        <div class="mid-box">
+            <h1>Visual Mods</h1>
+            <h3>Beacons</br>Bone ESP</br>Hand ESP</br>Hand Tracers</br>Body Tracers</br>Body Tracers Untagged</br>Body ESP</br>Gray Sky</h3>
+        </div>
+        <div class="mid-box">
+            <h1>Mod Settings</h1>
+            <h3>Speedboost Power</br>Grip Speedboost Power</br>Fly Speed</br>Long Arms Length</br>Head Spin Speed</h3>
+        </div>
+        <div class="mid-box">
+            <h1>Safety Mods</h1>
+            <h3>Anti Report</br>No Finger Movement</br>Flush RPC'S</h3>
+        </div>
+        <div class="mid-box">
+            <h1>Projectile Mods</h1>
+            <h3>Soon.</h3>
+        </div>
+        <div class="mid-box-special">
+            <h1>Random Mods</h1>
+            <h3>Draw</br>Gun Draw</br>Ride Bug</br>Bug Gun</br>Bat Gun</br>Beachball Gun</br>Helicopter</br>Rig Gun</br>Grab Rig</br>Doug Trail</br>Grab Bug</br>Grab Bat</br>Grab Beachball</br>Ride On Players Head (Random Player)</br>Copy Movement (Random Player)</br>Copy Movement Head (Random Player)</br>Upside Down Head</br>Backwards Head</br>Spin Head [Forwards]</br>Spin Head [Backwards]</br>Spin Head [Left]</br>Spin Head [Right]</br>Disable Lighting [FPS Boost]</br>Head Gun</br>Change Name Invisible</br>Change Name PBBV</br>Change Name J3VU</br>Change Name ECHO</br>Change Name HIDE</br>Change Name TIPTOE</br>Change Name Statue</br>Change Name BANSHEE</br>Change Name MORSE</br>Change Name SPIDER</br>Change Name LEMMING</br>Change Name NOVUH</br>Change Name KAEN</h3>
+        </div>
+        <div class="mid-box-special">
+            <h1>Movement Mods</h1>
+            <h3>Fly</br>Velocity Fly</br>Velocity Fly Noclip</br>Fly with Noclip</br>Noclip</br>WASD Fly</br>Steam Long Arms</br>Zero-G</br>Speedboost</br>Speedboost Grip</br>Ghost Monke</br>Invis Monke</br>TP Gun</br>Checkpoint</br>Up and Down</br>Uncap Speed</br>Uncap FPS</br>60 HZ</br>45 HZ</br>30 HZ</br>10 HZ</h3>
+        </div>
+        <div class="mid-box-special">
+            <h1>Advantage Mods</h1>
+            <h3>Tag Gun [KD]</br>Tag All [KD]</br>Tag Self</br>Tag Self + Tag All [KD]</br>Flick Tag Gun</br>Flick Tag Gun [Left]</br>Speedboost</br>Grip Speedboost</br>Platforms</br>Invis Monke</br>Steam Long Arms</h3>
+        </div>
+        <div class="mid-box-special">
+            <h1>Sound Mods</h1>
+            <h3>Random Sound Spam</br>Med Drum Spam</br>Monkey Spam</br>Dragon Spam</br>Eel Spam</br>Wolf Spam</br>Metal Spam</br>Bark Spam</br>Custom Sound Spam</h3>
+        </div>
+    </div>
+
+    <div class="bottom-box">
+        <h1>Mod Suggestions</h1>
+        <h3>Have any mod suggestions? Join our Discord to share your ideas and help shape the Kaen Menu experience.</h3>
+        <a href="https://discord.gg/cUmS4E2yXd" target="_blank" class="link-button">Join the Discord</a>
+    </div>
+    <div class="bottom-box" style="text-align: center; width: 600px; position: relative; background: rgba(11, 11, 11, 0.8); translate: 95%;">© 2024 Kaen. All Rights Reserved.</div>
+</body>
+</html>

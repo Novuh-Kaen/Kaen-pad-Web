@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K A E N</title>
+    <script>
+        function doMinoy() {
+            var thanksText = document.getElementById('thanksText');
+            thanksText.classList.add('thanks-animation');
+            thanksText.addEventListener('animationend', function() {
+                thanksText.classList.remove('thanks-animation');
+            }, { once: true });
+        }
+    </script>
+    <style>
+        @keyframes minoy {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .minoy-animation {
+            animation: thanks 3s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        body {
+            background: linear-gradient(135deg, rgb(60, 60, 60), black);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .static-box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: rgba(20, 20, 20, 0.9);
+            color: white;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 34px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 0 0 10px 10px;
+            z-index: 101;
+        }
+
+        .static-box-buttons {
+            display: flex;
+            gap: 10px;
+            transform: translate(-174%);
+        }
+
+        .static-box-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            width: auto;
+            background: linear-gradient(135deg, #222 0%, #111 100%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .button-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 2px;
+        }
+
+        .static-box-button:hover {
+            background: linear-gradient(135deg, #555 0%, #777 100%);
+            transform: scale(1.1);
+        }
+
+        .image-box {
+            margin-top: -10px;
+            text-align: center;
+        }
+
+        .image-box img {
+            max-width: 50%;
+            height: auto;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .mid-box-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .mid-box {
+            position: fixed;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background: rgba(10, 10, 10, 0.8);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            transition: top 0.3s ease;
+        }
+
+        .mid-box h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .mid-box p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .link-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #222 0%, #111 100%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 5px;
+        }
+
+        .link-button:hover {
+            background: linear-gradient(135deg, #555 0%, #777 100%);
+            transform: scale(1.1);
+        }
+
+        .bottom-box {
+            width: 100%;
+            background: rgba(11, 11, 11, 0.8);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            margin: 10px 0;
+        }
+
+        .bottom-box h3 {
+            margin: 0;
+        }
+
+        .bottom-box .static-box-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .bottom-box .static-box-button:hover {
+            background: linear-gradient(135deg, #555 0%, #777 100%);
+            transform: scale(1.1);
+        }
+
+        .kaen-text {
+            position: fixed;
+            top: 15%;
+            left: 42.5%;
+            transform: translateX(-50%);
+            color: black;
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            text-align: center;
+            z-index: 10;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .thanks-text {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            width: 80%;
+            max-width: 600px;
+            background: rgba(10, 10, 10, 0.8);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+            transition: top 0.3s ease;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -270%);
+            color: white;
+            font-size: 44px;
+            font-family: 'Roboto', sans-serif;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="static-box">
+        Kaen.Kaen Menu
+        <div class="static-box-buttons">
+            <a href="index.html" class="static-box-button">
+                <img src="Home2.png" class="button-icon">
+                Home
+            </a>
+            <a href="Download.html" class="static-box-button">
+                <img src="Down.png" class="button-icon" style="transform: scale(0.7);">
+                Download
+            </a>
+            <a href="About.html" class="static-box-button">
+                <label style="color: black; scale: 2.5; margin: 10px;"> ?</label>
+                About
+            </a>
+        </div>
+    </div>
+
+    <div class="kaen-text">
+        DOWNLOAD
+    </div>
+
+    <div class="image-box">
+        <img src="KaenMenuLog.png" alt="Kaen Menu Logo">
+    </div>
+    <div class="mid-box">
+        <h2>The most customizable menu</h2>
+        <p>Elevate your Gorilla Tag experience with the Kaen.Kaen Menu. Gain access to a powerful suite of over 100 mods, meticulously designed to make the game more fun. Join the elite group of players who use the Kaen.Kaen Menu.</p>
+        <a href="Kaen Pad.dll"><div class="link-button">Download Kaen Pad</div></a>
+    </div>
+</body>
+</html>
